@@ -4,6 +4,7 @@ import com.caiorosadev.zoo.animal.Animal;
 import com.caiorosadev.zoo.animal.impl.Dog;
 import com.caiorosadev.zoo.animal.impl.Horse;
 import com.caiorosadev.zoo.animal.impl.Sloth;
+import com.caiorosadev.zoo.animal.types.Runner;
 
 public class Zoo {
 	private final Animal[] cages = new Animal[10];
@@ -28,6 +29,17 @@ public class Zoo {
 		for (Animal animal : cages) {
 			if (animal != null) {
 				vet.checkAnimal(animal);
+			}
+		}
+
+		for (Animal animal : cages) {
+			if (animal != null) {
+				animal.makeSound();
+				if (animal instanceof Runner) {
+					Runner parsedAnimal = (Runner) animal;
+
+					parsedAnimal.run();
+				}
 			}
 		}
 	}
